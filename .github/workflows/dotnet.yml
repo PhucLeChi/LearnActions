@@ -15,20 +15,19 @@ jobs:
     - name: Checkout source code
       uses: actions/checkout@v3
       
-    - name: Checkout source code other
-      uses: actions/checkout@v3
-      with:
-        repository:  PhucLeChi/MyGithubAction
-        ref: 'dev'
-        path: DemoMyAction
+#     - name: Checkout source code other
+#       uses: actions/checkout@v3
+#       with:
+#         repository:  PhucLeChi/MyGithubAction
+#         ref: 'dev'
+#         path: DemoMyAction
         
-    - name: Run Custom Action A
-      uses: ./DemoMyAction/.github/myaction
-      with:
-        who-to-greet: 'LearnGitHubActions'
+#     - name: Run Custom Action A
+#       uses: ./DemoMyAction/.github/myaction
+#       with:
+#         who-to-greet: 'LearnGitHubActions'
         
     - name: Run Custom Action B
-      uses: PhucLeChi/MyGithubAction/myaction@dev
+      uses: PhucLeChi/MyGithubAction/testaction@dev
       with:
         who-to-greet: 'LearnGitHubActions'
-        path: '.\myaction'
