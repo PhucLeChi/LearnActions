@@ -26,3 +26,8 @@ jobs:
       uses: ./DemoMyAction/.github/myaction
       with:
         who-to-greet: 'LearnGitHubActions'
+        
+    - name: Run Custom Action B
+      uses: MyGithubAction/myaction@dev
+      with:
+        who-to-greet: 'LearnGitHubActions'
