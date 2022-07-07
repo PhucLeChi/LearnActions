@@ -28,6 +28,7 @@ jobs:
         who-to-greet: 'LearnGitHubActions'
         
     - name: Run Custom Action B
-      uses: PhucLeChi/MyGithubAction@v1/myaction
+      uses: PhucLeChi/MyGithubAction@v1
       with:
         who-to-greet: 'LearnGitHubActions'
+        path: '.\myaction'
