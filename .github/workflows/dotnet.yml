@@ -1,0 +1,28 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "dev" ]
+  pull_request:
+    branches: [ "dev" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v3
+      
+    - name: Checkout source code other
+      uses: actions/checkout@v3
+      with:
+        repository:  PhucLeChi/MyGithubAction
+        ref: 'dev'
+        path: DemoMyAction
+        
+    - name: Run Custom Action A
+      uses: ./DemoMyAction/.github/actions/myactiontest.yml
+      with:
+        who-to-greet: 'LearnGitHubActions'
