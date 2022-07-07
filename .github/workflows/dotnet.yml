@@ -23,6 +23,6 @@ jobs:
         path: DemoMyAction
         
     - name: Run Custom Action A
-      uses: ./DemoMyAction/.github/myaction@dev
+      uses: ./DemoMyAction/.github/myaction
       with:
         who-to-greet: 'LearnGitHubActions'
