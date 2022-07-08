@@ -31,3 +31,6 @@ jobs:
       uses: PhucLeChi/MyGithubAction/testaction@dev
       with:
         who-to-greet: 'LearnGitHubActions'
+        
+    - name: Show log
+      run: echo "Build number as env ${{ env.BUILD_NUMBER }}"
