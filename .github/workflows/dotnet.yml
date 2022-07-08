@@ -27,18 +27,25 @@ jobs:
 #       with:
 #         who-to-greet: 'LearnGitHubActions'
         
-#     - name: Run Custom Action B
-#       uses: PhucLeChi/MyGithubAction/testaction@dev
-#       with:
-#         who-to-greet: 'LearnGitHubActions'
-        
-#     - name: Show log
-#       run: echo "Build number as env ${{ env.BUILD_NUMBER }}"
-
-    - name: Run Custom Action C
-      uses: PhucLeChi/MyGithubAction/.github/haha@feature/add-reused-workflow-build-and-package-dotnet
+    - name: Run Custom Action B
+      uses: PhucLeChi/MyGithubAction/testaction@dev
       with:
         who-to-greet: 'LearnGitHubActions'
         
     - name: Show log
-      run: echo "Done"
+      run: echo "Build number as env ${{ env.BUILD_NUMBER }}"
+
+#     - name: Run Custom Action C
+#       uses: PhucLeChi/MyGithubAction/.github/haha@feature/add-reused-workflow-build-and-package-dotnet
+#       with:
+#         who-to-greet: 'LearnGitHubActions'
+        
+#     - name: Show log
+#       run: echo "Done"
+
+  deploy:
+    needs: build
+    runs-on: windows-latest
+    steps:
+      - name: Show log deploy
+        run: echo "Build number for deploy ${{ env.BUILD_NUMBER }}"
