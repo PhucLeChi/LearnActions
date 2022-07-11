@@ -10,8 +10,14 @@ jobs:
   build:
 
     runs-on: windows-latest
+    
+    env:
+      PHYSICAL_PATH_FOR_APPLICATION: '${{ env.SystemDrive }}\inetpub\wwwroot\api-test.rightprospectus.com\DocDistroTest'
+      MY_NAME: 'PhucLe'
 
     steps:
+    - name: Show log
+      run: echo "Build number as env ${{ env.PHYSICAL_PATH_FOR_APPLICATION }}"
 #     - name: Checkout source code
 #       uses: actions/checkout@v3
       
@@ -22,18 +28,18 @@ jobs:
 #         ref: 'dev'
 #         path: DemoMyAction
         
-#     - name: Run Custom Action A
-#       uses: ./DemoMyAction/.github/myaction
-#       with:
-#         who-to-greet: 'LearnGitHubActions'
-        
-    - name: Run Custom Action B
-      uses: PhucLeChi/MyGithubAction/testaction@dev
+    - name: Run Custom Action A
+      uses: PhucLeChi/MyGithubAction/.github/myaction@dev
       with:
         who-to-greet: 'LearnGitHubActions'
         
-    - name: Show log
-      run: echo "Build number as env ${{ env.BUILD_NUMBER }}"
+#     - name: Run Custom Action B
+#       uses: PhucLeChi/MyGithubAction/testaction@dev
+#       with:
+#         who-to-greet: 'LearnGitHubActions'
+        
+#     - name: Show log
+#       run: echo "Build number as env ${{ env.BUILD_NUMBER }}"
 
 #     - name: Run Custom Action C
 #       uses: PhucLeChi/MyGithubAction/.github/haha@feature/add-reused-workflow-build-and-package-dotnet
