@@ -46,8 +46,8 @@ jobs:
 #       with:
 #         who-to-greet: 'LearnGitHubActions'
         
-#     - name: Show log
-#       run: echo "Done"
+    - name: Show log
+      run: echo "Done"
 
   deploy:
     needs: build
