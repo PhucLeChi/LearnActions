@@ -12,7 +12,7 @@ jobs:
     runs-on: windows-latest
     
     env:
-      PHYSICAL_PATH_FOR_APPLICATION: $env:SystemDrive'\inetpub\wwwroot\api-test.rightprospectus.com\DocDistroTest'
+      PHYSICAL_PATH_FOR_APPLICATION: $env:SystemDrive\inetpub\wwwroot\api-test.rightprospectus.com\DocDistroTest
       MY_NAME: 'PhucLe'
 
     steps:
