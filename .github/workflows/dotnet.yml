@@ -34,6 +34,7 @@ jobs:
 #         who-to-greet: 'LearnGitHubActions'
         
     - name: Run Custom Action B
+      id: build
       uses: PhucLeChi/MyGithubAction/testaction@dev
       with:
         who-to-greet: 'LearnGitHubActions'
@@ -50,7 +51,8 @@ jobs:
       run: echo "Done"
     
     outputs:
-      random-number: ${{ env.BUILD_NUMBER }}
+      random-number: ${{ env.BUILD_NUMBER }}      
+      build-number: ${{ steps.build.outputs.random-number }}
 
   deploy:
     needs: build
@@ -62,6 +64,9 @@ jobs:
       - name: Show log deploy 222
         shell: pwsh
         run: echo "Build number for deploy ${{ needs.build.outputs.random-number }}"
+      - name: Show log deploy 333
+        shell: pwsh
+        run: echo "Build number for deploy ${{ needs.build.outputs.build-number }}"
       - name: Show log deploy path
         shell: pwsh
         run: echo "Build number for deploy ${{ env.PHYSICAL_PATH_FOR_APPLICATION }}"
