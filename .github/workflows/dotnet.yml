@@ -54,6 +54,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Show log deploy
+        shell: pwsh
         run: echo "Build number for deploy ${{ env.BUILD_NUMBER }}"
       - name: Show log deploy 222
+        shell: pwsh
         run: echo "Build number for deploy ${{ needs.build.outputs.random-number }}"
+      - name: Show log deploy path
+        shell: pwsh
+        run: echo "Build number for deploy ${{ env.PHYSICAL_PATH_FOR_APPLICATION }}"
