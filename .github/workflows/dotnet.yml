@@ -48,6 +48,9 @@ jobs:
         
     - name: Show log
       run: echo "Done"
+    
+    outputs:
+      random-number: ${{ env.BUILD_NUMBER }}
 
   deploy:
     needs: build
