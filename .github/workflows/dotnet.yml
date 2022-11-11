@@ -27,10 +27,12 @@ jobs:
         who-to-greet: 'LearnGitHubActions'
         
     - name: Save output
+      id: save_output
+      shell: pwsh
       run: echo "BuildOutOut=1990" >> $env:GITHUB_OUTPUT
     
     outputs:
-      random-number: ${{ env.BuildOutOut }}      
+      random-number: ${{ steps.save_output.outputs.BuildOutOut }}
       build-number: ${{ steps.build.outputs.random-number }}
 
   deploy:
