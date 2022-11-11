@@ -19,20 +19,6 @@ jobs:
     steps:
     - name: Show log
       run: echo "Build number as env ${{ env.PHYSICAL_PATH_FOR_APPLICATION }}"
-#     - name: Checkout source code
-#       uses: actions/checkout@v3
-      
-#     - name: Checkout source code other
-#       uses: actions/checkout@v3
-#       with:
-#         repository:  PhucLeChi/MyGithubAction
-#         ref: 'dev'
-#         path: DemoMyAction
-        
-#     - name: Run Custom Action A
-#       uses: PhucLeChi/MyGithubAction/.github/myaction@dev
-#       with:
-#         who-to-greet: 'LearnGitHubActions'
         
     - name: Run Custom Action B
       id: build
@@ -40,34 +26,20 @@ jobs:
       with:
         who-to-greet: 'LearnGitHubActions'
         
-    - name: Show log
-      run: echo "Build number as env ${{ env.BUILD_NUMBER }}"
-
-#     - name: Run Custom Action C
-#       uses: PhucLeChi/MyGithubAction/.github/haha@feature/add-reused-workflow-build-and-package-dotnet
-#       with:
-#         who-to-greet: 'LearnGitHubActions'
-        
-    - name: Show log
-      run: echo "Done"
+    - name: Save output
+      run: echo "BuildOutOut=1990" >> $env:GITHUB_OUTPUT
     
     outputs:
-      random-number: ${{ env.BUILD_NUMBER }}      
+      random-number: ${{ env.BuildOutOut }}      
       build-number: ${{ steps.build.outputs.random-number }}
 
   deploy:
     needs: build
     runs-on: windows-latest
     steps:
-      - name: Show log deploy
-        shell: pwsh
-        run: echo "Build number for deploy ${{ env.BUILD_NUMBER }}"
-      - name: Show log deploy 222
+      - name: Show build out
         shell: pwsh
         run: echo "Build number for deploy ${{ needs.build.outputs.random-number }}"
-      - name: Show log deploy 333
+      - name: Show build number
         shell: pwsh
         run: echo "Build number for deploy ${{ needs.build.outputs.build-number }}"
-      - name: Show log deploy path
-        shell: pwsh
-        run: echo "Build number for deploy ${{ env.PHYSICAL_PATH_FOR_APPLICATION }}"
